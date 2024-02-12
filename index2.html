@@ -14,6 +14,7 @@
     <button onclick="calculadora()">Clacula imc</button>
     <button onclick="media()">media</button>
     <button onclick="calculaAreaTriangulo()">triangulo</button>
+    <button onclick="calculaPrecioConIVA()">Calcula precio con IVA</button>
 
     <script>
         /*Funcion login*/
@@ -108,6 +109,19 @@
             let altura=prompt("Dime la altura del triangulo");
             area=areaTriangulo(Number(base), Number(altura));
             alert("La area es: " +area);
+        }
+
+        /*Funcion que pide una cantidad de dinero y devuelve el precio con IVA,*/
+        function precioConIVA (precio){
+            let IVA=Number(precio*1.21);
+            return IVA;
+        }
+
+        function calculaPrecioConIVA () {
+            let dinero=prompt("Dime la cantidad de dinero");
+            IVA=precioConIVA(Number(dinero));
+
+            alert("El IVA es: " +IVA);
         }
     </script>
 </body>

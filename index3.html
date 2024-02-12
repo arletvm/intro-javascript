@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="calculaPrecioConIVA()">Calcula precio con IVA</button>
+
+    <script>
+        /*Funcion que pide una cantidad de dinero y devuelve el precio con IVA,*/
+        function precioConIVA (precio){
+            let IVA=Number(precio*1.21);
+            return IVA;
+        }
+
+        function calculaPrecioConIVA () {
+            let dinero=prompt("Dime la cantidad de dinero");
+            IVA=precioConIVA(Number(dinero));
+
+            alert("El IVA es: " +IVA);
+        }
+    </script>
+</body>
+</html>
