@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript2</title>
+</head>
+<body>
+    <h1>Iniciar sesion</h1>
+    <button onclick="login()">Login</button> <!--Con el onclick llamamos funciones-->
+    <button onclick="compruebaPar()">Pares</button>
+    <button onclick="compruebaEdad()">Edad</button>
+    <button onclick="calculadora()">Clacula imc</button>
+    <button onclick="media()">media</button>
+    <button onclick="calculaAreaTriangulo()">triangulo</button>
+
+    <script>
+        /*Funcion login*/
+        function login() {
+            let usuario=prompt("Introduzca usuario");
+            let contrasena=prompt("Introduzca contraseña");
+            if (usuario == "admjin" && contrasena == "1234") {
+                alert("Bienvenido a mi pagina");
+            } else {
+                alert("Acceso denegado");
+            }
+        }
+
+        /*Función de si es par*/
+        function esPar(n1) {
+            if (n1%2==0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function compruebaPar() {
+            let numero; /*Es muy importante declararlo fuera del bucle*/
+            do {
+                numero=prompt("Dime un num");
+            } while (isNaN(numero)); /*Significa que lo hace mientras no e sun valor númerico*/
+
+            if (esPar(numero)){
+                alert("Es par");
+            } else {
+                alert("Es impar");
+            }
+        }
+
+        /*Funciçon de edad*/
+        function dimeEdad (edad) {
+            if (edad>=18) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function compruebaEdad () {
+            let edad=prompt ("Dime tu edad");
+
+            if (isNaN(edad)) {
+                alert("Dato NO válido");
+            }
+
+            if (dimeEdad(edad)) {
+                alert ("Bienvenido a mi página");
+            } else {
+                alert ("No puedes entrar, vete");
+            }
+        }
+
+        /*Funcion que calcula el indice de masa corporal*/
+        function indiceMC (m,h) {
+            indice= m/Math.pow(h,2); /*Como en JAVA, h al cuadrado*/
+            return indice;
+        }
+        function calculadora () {
+            masa=prompt("Dime tu peso (kg)");
+            altura=prompt("Dime tu altura (m)");
+            alert (indiceMC(masa,altura));
+        }
+
+        /*Funcion media de 3 notas*/
+        function media() {
+            let n1=prompt("dime el 1er num");
+            let n2=prompt("dime el 2do num");
+            let n3=prompt("dime el 3er num");
+            media=media3num(Number(n1),Number(n2),Number(n3));
+            alert("La meda: " +media);
+        }
+
+        /*Funcion media OTRA MANERA*/
+        function media3num (num1, num2, num3) {
+            media=(Number(num1)+Number(num2)+Number(num3))/3;
+            return media;
+        }
+
+        /*Funcion Area triángulo*/
+        function areaTriangulo (b,h) { /*pregunta la base y la altura y llama a la funcion*/
+            area=(Number(b)*Number(h))/2;
+            return area;
+        }
+        function calculaAreaTriangulo () {
+            let base=prompt("Dime la base del triangulo");
+            let altura=prompt("Dime la altura del triangulo");
+            area=areaTriangulo(Number(base), Number(altura));
+            alert("La area es: " +area);
+        }
+    </script>
+</body>
+</html>

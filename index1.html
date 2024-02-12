@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript1</title>
+</head>
+<body>
+    <h1>Introducción a Javascript</h1>
+    <button onclick="suma()">Sumar</button> <!--Con el onclick llamamos funciones-->
+    <script>
+        function suma() {
+            alert("Bienvenido a mi página");
+            let nombre=prompt("Cómo te llamas"); /*Muestra mensajes igual pero en este caso devuelve valores, 
+                                                let asigna una variable, NO es necesario el tipo, si no lo ponemos puede dar error
+                                                si repetimos el nombre de la variable*/
+            alert("Encantado de conocerte " +nombre);
+            let n1=prompt("Dime un num");
+
+            if (isNaN(n1)){ /*Devuelve x cosa si no es un número*/
+                alert("NO es un num");
+            } else {
+                let n2=prompt("Dime otro num");
+                if (isNaN(n2)){
+                    alert("NO es un num");
+                } else {
+                    let suma=Number(+n1)+Number(+n2); /*Number es para que los números sean números, si no lo ponemos serán String*/
+                    alert("La suma es: " +suma);
+                }
+            };
+        }
+
+
+
+    </script>
+</body>
+</html>
