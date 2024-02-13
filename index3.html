@@ -29,12 +29,6 @@
             let precioIVA= precioConIVA (precioSinIVA, tipoValor);
             let display = document.getElementById("display");
             display.innerHTML = "El precio con IVA es: " +precioIVA;
-            
-            if (efectivo(precioIVA)) {
-                alert("Puedes pagar en efectivo");
-            } else {
-                alert("No puedes pagar en efectivo");
-            }
         }
 
         /*Funcion que pide una cantidad de dinero y devuelve el precio con IVA,*/
