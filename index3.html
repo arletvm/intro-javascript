@@ -5,16 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        #display {
+            border: 2px solid red;
+        }
+    </style>
+
 </head>
 <body>
+    <h2>Cálculo de IVA</h2>
+    Precio sin IVA: <input type="text" id="precio-sin-iva" value="100">
+    Tipo de IVA: <input type="number" max="3" min="1" id="tipoIVA" value="3">
 
-    <button onclick="calculaPrecioConIVA()">Calcula precio con IVA</button>
+    <button onclick="calculaPrecioConIVAformulario()">Calcula precio con IVA</button>
+
+    <p id="display"></p>
 
     <script>
+        function calculaPrecioConIVAformulario (){
+            let precioSinIVA=document.getElementById("precio-sin-iva").value;
+            let tipoValor=document.getElementById("tipoIVA").value;
+            let precioIVA= precioConIVA (precioSinIVA, tipoValor);
+            let display = document.getElementById("display");
+            display.innerHTML = "El precio con IVA es: " +precioIVA;
+            
+            if (efectivo(precioIVA)) {
+                alert("Puedes pagar en efectivo");
+            } else {
+                alert("No puedes pagar en efectivo");
+            }
+        }
+
         /*Funcion que pide una cantidad de dinero y devuelve el precio con IVA,*/
-        function precioConIVA (precio){
-            let IVA=Number(precio*1.21);
+        function precioConIVA (precio, tipo){ /*que pida que tipo de IVA: tipo1 - 5%, 2 - 10%, 3 - 21%*/
+            let IVA;
+            if (tipo==1) {
+                IVA=Number(precio*1.05);
+            } else if (tipo==2) {
+                IVA=Number(precio*1.10);
+            } else if (tipo==3) {
+                IVA=Number(precio*1.21);
+            } else {
+                alert("No existe ese tipo de IVA");
+            }
             return IVA;
+
         }
 
         function efectivo (cantidad) {
@@ -27,11 +63,11 @@
 
         function calculaPrecioConIVA () {
             let dinero=prompt("Dime la cantidad de dinero");
-            IVA=precioConIVA(Number(dinero));
+            let tipoIVA=prompt("Dime el tipo de IVA que deseas");
+            IVA=precioConIVA(Number(dinero), Number(tipoIVA));
             efectivo(Number(dinero));
 
-            alert("El IVA es: " +IVA);
-            if (efectivo(dinero)) {
+            if (efectivo(IVA)) {
                 alert("Puedes pagar en efectivo");
             } else {
                 alert("No puedes pagar en efectivo");
