@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,11 +17,25 @@
             return IVA;
         }
 
+        function efectivo (cantidad) {
+            if (Number(cantidad)<2000) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         function calculaPrecioConIVA () {
             let dinero=prompt("Dime la cantidad de dinero");
             IVA=precioConIVA(Number(dinero));
+            efectivo(Number(dinero));
 
             alert("El IVA es: " +IVA);
+            if (efectivo(dinero)) {
+                alert("Puedes pagar en efectivo");
+            } else {
+                alert("No puedes pagar en efectivo");
+            }
         }
     </script>
 </body>
